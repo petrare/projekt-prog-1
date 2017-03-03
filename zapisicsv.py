@@ -8,6 +8,9 @@ def vsebina_datoteke(ime_datoteke):
         vsebina = datoteka.read()
     return vsebina
 
+def datoteke(imenik):
+    '''Vrne imena vseh datotek v danem imeniku skupaj z imenom imenika.'''
+    return [os.path.join(imenik, datoteka) for datoteka in os.listdir(imenik)]
 
 def pripravi_imenik(ime_datoteke):
     '''Če še ne obstaja, pripravi prazen imenik za dano datoteko.'''
@@ -113,6 +116,7 @@ def zdruzi():
                 trenutna_knjiga['uvrstitev'] = knjiga_1['uvrstitev']
                 trenutna_knjiga['avtor'] = knjiga_1['avtor']
                 trenutna_knjiga['povprečnaocena'] = knjiga_1['povprečnaocena']
+                trenutna_knjiga['id'] = knjiga_1['id']
                 zdruzen.append(trenutna_knjiga)
                 najdeno = True
                 break
